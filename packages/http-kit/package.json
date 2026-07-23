@@ -1,0 +1,41 @@
+{
+  "name": "@liberia-locker/http-kit",
+  "version": "0.1.0",
+  "description": "Shared HTTP client/server utilities for all Liberia Document Locker services: standard error shapes, request validation, idempotency-key handling, retry/backoff, and logging hooks.",
+  "license": "UNLICENSED",
+  "private": true,
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "express": "^4.19.0"
+  },
+  "dependencies": {
+    "@liberia-locker/shared-types": "^1.0.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.14.9",
+    "@types/supertest": "^6.0.2",
+    "express": "^4.19.2",
+    "supertest": "^7.0.0",
+    "typescript": "^5.5.3",
+    "vitest": "^1.6.0"
+  }
+}
