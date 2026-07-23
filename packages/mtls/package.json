@@ -23,7 +23,7 @@
     "prepublishOnly": "npm run clean && npm run build"
   },
   "dependencies": {
-    "@liberia-locker/shared-types": "workspace:*"
+    "@liberia-locker/shared-types": "^1.0.0"
   },
   "peerDependencies": {
     "express": "^4.19.0"
