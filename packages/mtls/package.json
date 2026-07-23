@@ -12,7 +12,9 @@
       "default": "./dist/index.js"
     }
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "clean": "rm -rf dist",
@@ -29,11 +31,11 @@
     "express": "^4.19.0"
   },
   "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.14.15",
     "express": "^4.19.2",
     "typescript": "^5.5.4",
-    "vitest": "^2.0.5",
-    "@types/express": "^4.17.21",
-    "@types/node": "^20.14.15"
+    "vitest": "^4.1.10"
   },
   "engines": {
     "node": ">=18"

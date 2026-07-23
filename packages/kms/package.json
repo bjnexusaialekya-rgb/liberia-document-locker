@@ -1,7 +1,7 @@
 {
   "name": "@liberia-locker/kms",
   "version": "1.0.0",
-  "description": "RFP #11 \u2014 key-management abstraction for the Liberia National Digital Document Locker Platform. Wraps HashiCorp Vault's Transit secrets engine: app code only ever calls kms.encrypt/decrypt(payload, tier), never sees raw keys. Implements envelope encryption per sensitivity tier, per-record cryptographic erasure (crypto-shredding), and the documented Shamir's Secret Sharing unseal-key handover mechanism for production launch.",
+  "description": "RFP #11 — key-management abstraction for the Liberia National Digital Document Locker Platform. Wraps HashiCorp Vault's Transit secrets engine: app code only ever calls kms.encrypt/decrypt(payload, tier), never sees raw keys. Implements envelope encryption per sensitivity tier, per-record cryptographic erasure (crypto-shredding), and the documented Shamir's Secret Sharing unseal-key handover mechanism for production launch.",
   "license": "UNLICENSED",
   "private": true,
   "main": "./dist/index.js",
@@ -32,9 +32,9 @@
     "@liberia-locker/shared-types": "^1.0.0"
   },
   "devDependencies": {
+    "@types/node": "^20.14.15",
     "typescript": "^5.5.4",
-    "vitest": "^2.0.5",
-    "@types/node": "^20.14.15"
+    "vitest": "^4.1.10"
   },
   "engines": {
     "node": ">=18"
