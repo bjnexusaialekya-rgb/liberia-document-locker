@@ -1,0 +1,37 @@
+{
+  "name": "@liberia-locker/shared-types",
+  "version": "1.0.0",
+  "description": "Shared TypeScript types, zod runtime schemas, and cross-service contracts for the Liberia National Digital Document Locker Platform. Foundation package — no dependencies on any other package in this monorepo.",
+  "license": "UNLICENSED",
+  "private": true,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "clean": "rm -rf dist",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "prepublishOnly": "npm run clean && npm run build"
+  },
+  "dependencies": {
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.4",
+    "vitest": "^2.0.5",
+    "@types/node": "^20.14.15"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

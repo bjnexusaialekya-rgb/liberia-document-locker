@@ -1,0 +1,34 @@
+# Local/dev/staging Vault, per master blueprint "Secrets management" section:
+# "standing up Vault itself (self-hosted, dev/staging mode acceptable
+# initially, Transit engine enabled) is now explicitly the first step of
+# the packages/kms build session."
+#
+# THIS IS DEV MODE. Dev mode Vault:
+#   - starts already unsealed, with a single well-known root token
+#   - stores everything in memory — all keys are lost on container restart
+#   - is NOT how production Vault will be initialized (see
+#     src/vault-unseal-handover.ts and the README for the real
+#     sys/init + Shamir sharing path used at production launch)
+#
+# Usage:
+#   cp .env.example .env    # then edit VAULT_DEV_ROOT_TOKEN_ID to a real secret
+#   npm run vault:up
+#   npm run vault:bootstrap
+#
+services:
+  vault:
+    image: hashicorp/vault:1.17
+    container_name: liberia-locker-kms-vault
+    ports:
+      - "8200:8200"
+    cap_add:
+      - IPC_LOCK
+    environment:
+      VAULT_DEV_ROOT_TOKEN_ID: ${VAULT_DEV_ROOT_TOKEN_ID:-dev-only-root-token-change-me}
+      VAULT_DEV_LISTEN_ADDRESS: "0.0.0.0:8200"
+      VAULT_ADDR: "http://127.0.0.1:8200"
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:8200/v1/sys/health?standbyok=true&uninitcode=200&sealedcode=200"]
+      interval: 5s
+      timeout: 3s
+      retries: 10

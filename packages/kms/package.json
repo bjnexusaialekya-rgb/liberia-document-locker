@@ -1,0 +1,42 @@
+{
+  "name": "@liberia-locker/kms",
+  "version": "1.0.0",
+  "description": "RFP #11 \u2014 key-management abstraction for the Liberia National Digital Document Locker Platform. Wraps HashiCorp Vault's Transit secrets engine: app code only ever calls kms.encrypt/decrypt(payload, tier), never sees raw keys. Implements envelope encryption per sensitivity tier, per-record cryptographic erasure (crypto-shredding), and the documented Shamir's Secret Sharing unseal-key handover mechanism for production launch.",
+  "license": "UNLICENSED",
+  "private": true,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "clean": "rm -rf dist",
+    "test": "vitest run --exclude '**/*.integration.test.ts'",
+    "test:integration": "vitest run test/vault-client.integration.test.ts",
+    "test:all": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "vault:up": "docker compose -f docker-compose.vault.yml up -d",
+    "vault:down": "docker compose -f docker-compose.vault.yml down",
+    "vault:bootstrap": "bash scripts/bootstrap-vault.sh",
+    "prepublishOnly": "npm run clean && npm run build"
+  },
+  "dependencies": {
+    "@liberia-locker/shared-types": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.4",
+    "vitest": "^2.0.5",
+    "@types/node": "^20.14.15"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

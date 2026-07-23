@@ -1,0 +1,5 @@
+{
+  "name": "liberia-document-locker",
+  "private": true,
+  "workspaces": ["packages/*", "apps/*"]
+}
