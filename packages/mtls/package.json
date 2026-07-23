@@ -1,0 +1,41 @@
+{
+  "name": "@liberia-locker/mtls",
+  "version": "1.0.0",
+  "description": "Phase 0 shared package — mutual TLS between all internal services. Server-side TLS options, an Express middleware enforcing mTLS and extracting caller identity, an outbound client agent, and certificate-rotation hot-reload. Built on infra/scripts/generate-dev-certs.sh (dev CA + per-service leaf certs) for local/CI use.",
+  "license": "UNLICENSED",
+  "private": true,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "clean": "rm -rf dist",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "certs:dev": "bash ../../infra/scripts/generate-dev-certs.sh",
+    "prepublishOnly": "npm run clean && npm run build"
+  },
+  "dependencies": {
+    "@liberia-locker/shared-types": "workspace:*"
+  },
+  "peerDependencies": {
+    "express": "^4.19.0"
+  },
+  "devDependencies": {
+    "express": "^4.19.2",
+    "typescript": "^5.5.4",
+    "vitest": "^2.0.5",
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.14.15"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
