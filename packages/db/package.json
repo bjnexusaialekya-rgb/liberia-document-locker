@@ -37,7 +37,7 @@
     "@types/pg": "^8.11.6",
     "tsx": "^4.16.2",
     "typescript": "^5.5.3",
-    "vitest": "^1.6.0"
+    "vitest": "^4.1.10"
   },
   "engines": {
     "node": ">=20"

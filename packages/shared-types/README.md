@@ -40,7 +40,7 @@ package or service in the monorepo:
 }
 ```
 
-If the monorepo isn't wired up with npm/pnpm workspaces yet, a `file:`
+If the monorepo isn't wired up with npm workspaces yet, a `file:`
 reference works identically during early sessions:
 
 ```json

@@ -36,6 +36,6 @@
     "express": "^4.19.2",
     "supertest": "^7.0.0",
     "typescript": "^5.5.3",
-    "vitest": "^1.6.0"
+    "vitest": "^4.1.10"
   }
 }
