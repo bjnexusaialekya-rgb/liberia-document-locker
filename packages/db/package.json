@@ -1,0 +1,45 @@
+{
+  "name": "@liberia-locker/db",
+  "version": "0.1.0",
+  "description": "Schema, migrations, and RLS session-context helpers for the Liberia National Digital Document Locker Platform. Foundation package — every service that touches Postgres connects through the locker_app role this package creates and enforces RLS through the GUCs this package sets.",
+  "license": "UNLICENSED",
+  "private": true,
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "migrations"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "clean": "rm -rf dist",
+    "test": "vitest run --exclude '**/*.integration.test.ts'",
+    "test:integration": "vitest run test/schema.integration.test.ts",
+    "test:all": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "migrate": "tsx src/cli.ts",
+    "migrate:built": "node dist/cli.js",
+    "prepublishOnly": "npm run clean && npm run build"
+  },
+  "dependencies": {
+    "pg": "^8.12.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.9",
+    "@types/pg": "^8.11.6",
+    "tsx": "^4.16.2",
+    "typescript": "^5.5.3",
+    "vitest": "^1.6.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
