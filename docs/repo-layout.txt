@@ -1,0 +1,67 @@
+.
+├── README.md
+├── apps
+├── docs
+│   └── repo-layout.txt
+├── infra
+│   └── scripts
+├── kms-session2.zip
+├── package.json
+├── packages
+│   ├── kms
+│   │   ├── README.md
+│   │   ├── docker-compose.vault.yml
+│   │   ├── package-lock.json
+│   │   ├── package.json
+│   │   ├── scripts
+│   │   │   └── bootstrap-vault.sh
+│   │   ├── src
+│   │   │   ├── crypto-shredding.ts
+│   │   │   ├── errors.ts
+│   │   │   ├── index.ts
+│   │   │   ├── key-tiers.ts
+│   │   │   ├── kms.ts
+│   │   │   ├── shamir.ts
+│   │   │   ├── types.ts
+│   │   │   ├── vault-client.ts
+│   │   │   └── vault-unseal-handover.ts
+│   │   ├── test
+│   │   │   ├── crypto-shredding.test.ts
+│   │   │   ├── fakes
+│   │   │   │   └── fake-vault-client.ts
+│   │   │   ├── kms.test.ts
+│   │   │   ├── shamir.test.ts
+│   │   │   └── vault-client.integration.test.ts
+│   │   ├── tsconfig.json
+│   │   └── vitest.config.ts
+│   └── shared-types
+│       ├── README.md
+│       ├── package-lock.json
+│       ├── package.json
+│       ├── src
+│       │   ├── agencies.ts
+│       │   ├── api
+│       │   │   ├── common.ts
+│       │   │   ├── consent.ts
+│       │   │   ├── documents.ts
+│       │   │   ├── index.ts
+│       │   │   ├── payments.ts
+│       │   │   └── verification.ts
+│       │   ├── audit-log.ts
+│       │   ├── consent.ts
+│       │   ├── document-types.ts
+│       │   ├── enums.ts
+│       │   ├── index.ts
+│       │   └── users.ts
+│       ├── test
+│       │   ├── agencies.test.ts
+│       │   ├── api.test.ts
+│       │   ├── audit-log.test.ts
+│       │   ├── consent.test.ts
+│       │   ├── document-types.test.ts
+│       │   └── users.test.ts
+│       ├── tsconfig.json
+│       └── vitest.config.ts
+└── shared-types-session1.zip
+
+15 directories, 50 files
